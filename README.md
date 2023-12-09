@@ -1,4 +1,6 @@
-# Dg
+# Digital Garage (DG)
+
+Simple digital garage with the Ash Framework - prototype & discovery.
 
 To start your Phoenix server:
 

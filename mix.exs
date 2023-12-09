@@ -49,7 +49,12 @@ defmodule Dg.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.20"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:plug_cowboy, "~> 2.5"},
+      {:ash, "~> 2.17.9"},
+      {:ash_phoenix, "~> 1.1"},
+      {:ash_authentication, "~> 3.12"},
+      {:ash_authentication_phoenix, "~> 1.9"},
+      {:ash_postgres, "~> 1.3.6"}
     ]
   end
 

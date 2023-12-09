@@ -35,3 +35,8 @@ dg-*.tar
 npm-debug.log
 /assets/node_modules/
 
+# Environment files & secrets
+.env
+
+# Elixir Language Server 
+.elixir_ls/

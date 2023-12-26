@@ -1,5 +1,6 @@
 defmodule DgWeb.Router do
   use DgWeb, :router
+  use AshAuthentication.Phoenix.Router
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -8,6 +9,7 @@ defmodule DgWeb.Router do
     plug :put_root_layout, html: {DgWeb.Layouts, :root}
     plug :protect_from_forgery
     plug :put_secure_browser_headers
+    plug :load_from_session
   end
 
   pipeline :api do

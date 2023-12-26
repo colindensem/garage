@@ -17,9 +17,11 @@ defmodule Dg.Application do
       # Start Finch
       {Finch, name: Dg.Finch},
       # Start the Endpoint (http/https)
-      DgWeb.Endpoint
+      DgWeb.Endpoint,
       # Start a worker by calling: Dg.Worker.start_link(arg)
       # {Dg.Worker, arg}
+      # Ash Authentication
+      {AshAuthentication.Supervisor, otp_app: :dg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

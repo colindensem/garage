@@ -8,7 +8,7 @@
 import Config
 
 config :dg,
-  ash_apis: [Dg.Garage],
+  ash_apis: [Dg.Garage, Dg.Accounts],
   ecto_repos: [Dg.Repo]
 
 # Configures the endpoint
@@ -60,6 +60,15 @@ config :logger, :console,
 # Use Jason for JSON parsing in Phoenix
 config :phoenix, :json_library, Jason
 
+# Auth0 Authentication
+# config :dg,
+#   auth0: [
+#     client_id: System.get_env("AUTH0_CLIENT_ID", nil),
+#     redirect_url: System.get_env("AUTH0_REDIRECT_URL", nil),
+#     client_secret: System.get_env("AUTH0_CLIENT_SECRET"),
+#     base_url: System.get_env("AUTH0_BASE_URL")
+#   ]
+import_config("dev_secrets.exs")
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.
-import_config "#{config_env()}.exs"
+import_config("#{config_env()}.exs")

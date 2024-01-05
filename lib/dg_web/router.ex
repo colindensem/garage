@@ -30,6 +30,7 @@ defmodule DgWeb.Router do
 
     ash_authentication_live_session :authentication_required,
       on_mount: {DgWeb.LiveUserAuth, :live_user_required} do
+      live "/dashboard/:garage_slug", DashboardLive
       live "/dashboard", DashboardLive
     end
 

@@ -3,6 +3,11 @@ defmodule Dg.Accounts.User do
     data_layer: AshPostgres.DataLayer,
     extensions: [AshAuthentication]
 
+  code_interface do
+    define_for Dg.Accounts
+    define :get_by_id, args: [:id], action: :by_id
+  end
+
   attributes do
     uuid_primary_key :id
     attribute :email, :ci_string, allow_nil?: false
@@ -12,6 +17,10 @@ defmodule Dg.Accounts.User do
     attribute :name, :string
     create_timestamp :created_at
     update_timestamp :updated_at
+  end
+
+  relationships do
+    has_many :garages, Dg.Garages.Garage
   end
 
   postgres do
@@ -62,6 +71,17 @@ defmodule Dg.Accounts.User do
           changes
         )
       end
+    end
+
+    # Defines custom read action which fetches post by id.
+    read :by_id do
+      # This action has one argument :id of type :uuid
+      argument :id, :uuid, allow_nil?: false
+      # Tells us we expect this action to return a single result
+      get? true
+      # Filters the `:id` given in the argument
+      # against the `id` of each element in the resource
+      filter expr(id == ^arg(:id))
     end
   end
 end

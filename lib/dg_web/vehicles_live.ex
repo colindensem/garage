@@ -1,7 +1,7 @@
 defmodule DgWeb.VehiclesLive do
   use DgWeb, :live_view
   import Phoenix.HTML.Form
-  alias Dg.Garage.Vehicle
+  alias Dg.Garages.Vehicle
 
   def render(assigns) do
     ~H"""

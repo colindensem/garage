@@ -8,7 +8,7 @@
 import Config
 
 config :dg,
-  ash_apis: [Dg.Garage, Dg.Accounts],
+  ash_apis: [Dg.Garages, Dg.Accounts],
   ecto_repos: [Dg.Repo]
 
 # Configures the endpoint

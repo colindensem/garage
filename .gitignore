@@ -43,3 +43,4 @@ npm-debug.log
 
 # Ignore secret files
 config/dev_secrets.exs
+.vscode/

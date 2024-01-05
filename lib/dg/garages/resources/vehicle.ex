@@ -1,4 +1,4 @@
-defmodule Dg.Garage.Vehicle do
+defmodule Dg.Garages.Vehicle do
   use Ash.Resource,
     data_layer: AshPostgres.DataLayer
 
@@ -9,7 +9,7 @@ defmodule Dg.Garage.Vehicle do
   end
 
   code_interface do
-    define_for Dg.Garage
+    define_for Dg.Garages
     define :create, action: :create
     define :read_all, action: :read
     define :update, action: :update

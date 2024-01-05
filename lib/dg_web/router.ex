@@ -20,8 +20,21 @@ defmodule DgWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
+    get "/about", PageController, :about
+    get "/privacy", PageController, :privacy
 
-    live "/vehicles", VehiclesLive
+    sign_in_route(register_path: "/register", reset_path: "/reset")
+    sign_out_route AuthController
+    auth_routes_for Dg.Accounts.User, to: AuthController
+    reset_route []
+
+    ash_authentication_live_session :authentication_required,
+      on_mount: {DgWeb.LiveUserAuth, :live_user_required} do
+      live "/dashboard", DashboardLive
+    end
+
+    # TODO
+    # sign_in_route(on_mount: [{Dg.LiveUserAuth, :live_no_user}])
   end
 
   # Other scopes may use custom stacks.

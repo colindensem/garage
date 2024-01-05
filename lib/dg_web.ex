@@ -86,6 +86,7 @@ defmodule DgWeb do
       # Core UI components and translation
       import DgWeb.CoreComponents
       import DgWeb.Gettext
+      import DgWeb.MyComponents
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
